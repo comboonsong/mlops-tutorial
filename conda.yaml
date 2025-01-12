@@ -1,0 +1,11 @@
+name: mlflow-test
+channels:
+  - defaults
+dependencies:
+  - python=3.13
+  - pip
+  - pip:
+      - scikit-learn
+      - mlflow
+      - pandas
+      - dagshub
