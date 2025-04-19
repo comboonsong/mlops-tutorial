@@ -4,7 +4,7 @@ flowchart TB
     start([Start DICOM Completeness Check]) --> py1
     
     %% Python process
-    subgraph Python["Python Script: scripts/utils/check_completeness.py"]
+    subgraph Python["Python Script: check_completeness.py"]
         py1[Initialize Logger] --> py2[Check DICOM Files]
         py2 --> pyDecision{Files Exist?}
         pyDecision -->|No| pyFail[Log Error & Fail]
@@ -14,7 +14,7 @@ flowchart TB
     end
     
     %% MATLAB process
-    subgraph MATLAB["MATLAB Function: scripts/tasks/process_dicom/check_completeness.m"]
+    subgraph MATLAB["MATLAB Function: check_completeness.m"]
         m1["Load Configuration 
         (check_completeness_config.m)"] --> m2[Initialize Variables]
         m2 --> m3[Load DICOMDIR Information]
@@ -51,7 +51,7 @@ flowchart TB
     end
     
     %% Config details
-    subgraph Config["Configuration: scripts/tasks/process_dicom/check_completeness_config.m"]
+    subgraph Config["Configuration: check_completeness_config.m"]
         c1[Required Modalities:
         - fMRI Working memory
         - Brain T2*
